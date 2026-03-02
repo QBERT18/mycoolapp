@@ -6,14 +6,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class FunRestController {
-
-    // read data from application.properties file
-
     @Value("${coach.name}")
     private String coachName;
 
     @Value("${team.name}")
     private String teamName;
+
+    @GetMapping("/teaminfo")
+    public String getTeamInfo() {
+        return "Coach: " + coachName + ", Team: " + teamName;
+    }
 
     @GetMapping("/")
     public String sayHello() {
