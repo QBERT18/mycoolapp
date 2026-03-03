@@ -1,4 +1,4 @@
-package com.learn.springboot.mycoolapp;
+package com.learn.springboot.util;
 
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.learn.springboot.mycoolapp.rest;
 
-import com.learn.springboot.mycoolapp.Coach;
+import com.learn.springboot.util.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
