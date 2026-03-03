@@ -1,4 +1,4 @@
-package com.learn.springboot.util;
+package com.learn.springboot.mycoolapp.common;
 
 public interface Coach {
 
