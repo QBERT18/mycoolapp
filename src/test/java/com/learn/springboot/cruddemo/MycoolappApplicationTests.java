@@ -1,4 +1,4 @@
-package com.learn.springboot.mycoolapp;
+package com.learn.springboot.cruddemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
