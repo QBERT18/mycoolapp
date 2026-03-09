@@ -19,9 +19,9 @@ public class MycoolappApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			/*for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 5; i++) {
 				createStudent(studentDAO);
-			}*/
+			}
 
 			// readStudent(studentDAO);
 
@@ -32,7 +32,25 @@ public class MycoolappApplication {
 			// updateStudent(studentDAO);
 
 			// updateAllStudents(studentDAO);
+
+			// deleteStudent(studentDAO);
+
+			// deleteAllStudents(studentDAO);
 		};
+	}
+
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		System.out.println("Deleting all students...");
+		int numRowsDeleted = studentDAO.deleteAll();
+		System.out.println("Deleted " + numRowsDeleted + " students");
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 3;
+		System.out.println("Deleting student with id: " + studentId);
+		studentDAO.delete(studentId);
+
+		System.out.println("Deleted student with id: " + studentId);
 	}
 
 	private void updateAllStudents(StudentDAO studentDAO) {
