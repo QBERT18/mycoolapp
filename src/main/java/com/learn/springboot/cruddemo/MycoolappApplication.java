@@ -1,5 +1,7 @@
 package com.learn.springboot.cruddemo;
 
+import com.learn.springboot.cruddemo.dao.StudentDAO;
+import com.learn.springboot.cruddemo.entity.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +15,37 @@ public class MycoolappApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(String[] args) {
+	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			System.out.println("Hello World");
+			/*for (int i = 0; i < 5; i++) {
+				createStudent(studentDAO);
+			}*/
+
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+		System.out.println("Creating new student object...");
+		Student tempStudent = new Student("Paul", "Test", "test@gmail.com");
+
+		System.out.println("Saving the student...");
+		studentDAO.save(tempStudent);
+
+		int id = tempStudent.getId();
+		System.out.println("Saved student. Generated id: " + id);
+
+		System.out.println("Retrieving student with id: " + id);
+		Student myStudent = studentDAO.findById(id);
+
+		System.out.println("Found the student: " + myStudent);
+	}
+
+	private void createStudent(StudentDAO studentDAO) {
+		System.out.println("Creating new student object...");
+		Student tempStudent = new Student("Paul", "Wall", "paul@gmail.com");
+
+		System.out.println("Saving the student...");
+		studentDAO.save(tempStudent);
 	}
 }
