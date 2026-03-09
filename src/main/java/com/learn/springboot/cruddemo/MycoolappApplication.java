@@ -27,8 +27,31 @@ public class MycoolappApplication {
 
 			// queryForStudents(studentDAO);
 
-			queryForStudentsByLastName(studentDAO);
+			// queryForStudentsByLastName(studentDAO);
+
+			// updateStudent(studentDAO);
+
+			// updateAllStudents(studentDAO);
 		};
+	}
+
+	private void updateAllStudents(StudentDAO studentDAO) {
+		System.out.println("Updating all students...");
+		studentDAO.updateAllLastName("Zall");
+
+		System.out.println("Updated all students");
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int studentId = 1;
+		System.out.println("Getting student with id: " + studentId);
+		Student student = studentDAO.findById(studentId);
+
+		System.out.println("Updating student...");
+		student.setFirstName("Scooby");
+		studentDAO.update(student);
+
+		System.out.println("Updated student: " + student);
 	}
 
 	private void queryForStudentsByLastName(StudentDAO studentDAO) {
